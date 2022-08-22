@@ -26,6 +26,8 @@ class PostController extends Controller
             $post->video = $request->video;
             $post->link = $request->link;
 
+            $post->sub_reddit_id = 1; #fixado para ter 1 subreddit
+
             $post->save();
 
 

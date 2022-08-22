@@ -13,15 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('reddits', function (Blueprint $table) {
             $table->id();
-            $table->string('titulo');
-            $table->string('postagem');
-            $table->string('imagem')->nullable();
-            $table->string('video')->nullable();
-            $table->string('link')->nullable();
-            $table->integer('voto')->default(0);
-            $table->foreignId('sub_reddit_id')->constrained('sub_reddits')->default(1);
+            $table->string("name")->unique();
+            $table->string("owner")->unique();
+            $table->string("description");
+            $table->string("url")->unique();
             $table->timestamps();
         });
     }
@@ -33,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('reddits');
     }
 };

@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\RedditController;
+use App\Http\Controllers\SubRedditController;
 use App\Http\Controllers\CommentController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -33,6 +35,11 @@ Route::get('postagem/{id}/comentario', [CommentController::class, 'listarComenta
 Route::delete('postagem/{id}/comentario/{id_comentario}', [CommentController::class, 'deletarComentario']);
 Route::put('postagem/{id}/comentario/{id_comentario}', [CommentController::class, 'editarComentario']);
 Route::get('postagem/{id}/comentario/{id_comentario}', [CommentController::class, 'verComentario']);
+
+Route::post('criarSubReddit', [SubRedditController::class, 'criar']);
+Route::post('linkar', [RedditController::class, 'linkar']);
+
+
 
 
 
