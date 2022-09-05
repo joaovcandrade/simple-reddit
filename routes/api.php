@@ -23,7 +23,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::post('postagem', [PostController::class,'criarPostagem']);
+/* Route::post('postagem', [PostController::class,'criarPostagem']);
 Route::get('postagem', [PostController::class, 'listarPostagens']);
 Route::delete('postagem/deletar/{id}', [PostController::class, 'deletarPostagem']);
 Route::put('postagem/{id}', [PostController::class, 'editarPostagem']);
@@ -38,6 +38,13 @@ Route::get('postagem/{id}/comentario/{id_comentario}', [CommentController::class
 
 Route::post('criarSubReddit', [SubRedditController::class, 'criar']);
 Route::post('linkar', [RedditController::class, 'linkar']);
+ */
+
+Route::get("helloworld", function(){
+    return "Olá";
+});
+
+Route::post('criarSubReddit', [SubRedditController::class, 'criar']);
 
 
 

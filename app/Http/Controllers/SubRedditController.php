@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Facade;
 
 class SubRedditController extends Controller
 {
-    public function criar(Request $request){
+    /* public function criar(Request $request){
 
         $validated = Validator::make($request->all(),[
             'name' => ['required', 'max:30'],
@@ -35,10 +35,10 @@ class SubRedditController extends Controller
                 'owner' => $request->owner,
                 'description' => $request->description,
                 'url'  => env('SERVER_ADDR')
-            ]; 
+            ];
 
 
-           
+
             $subReddit->save();
 
 
@@ -53,7 +53,25 @@ class SubRedditController extends Controller
             "message" => $validated->errors()->all()
         ], 500);
 
-       
+
+
+    } */
+
+    public function criar(Request $request){
+
+        $subReddit = new SubReddit;
+
+        $subReddit->name = $request->name;
+        $subReddit->owner = $request->owner;
+        $subReddit->description = $request->description;
+
+        $subReddit->save();
+
+        $request->json([
+            "message" => "subReddit criado com sucesso. "
+        ], 200);
+
 
     }
+
 }
